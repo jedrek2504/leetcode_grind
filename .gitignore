@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+
+# Add playground.txt which is a place to write code without any syntax and indexing
+playground.txt
