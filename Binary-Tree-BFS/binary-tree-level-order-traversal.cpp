@@ -5,11 +5,11 @@ public:
         std::queue<TreeNode*> q = {};
         q.push(root);
         vector<vector<int>> res = {};
-        vector<int> temp = {};
 
         while(!q.empty())
         {
             size_t level_size = q.size();
+            vector<int> temp = {};
 
             for(size_t i = 0; i < level_size; ++i)
             {
