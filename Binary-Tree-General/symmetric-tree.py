@@ -9,11 +9,12 @@ class Solution:
             if not left or not right:
                 return False
 
-             
             return (
-                left.val == right.val           # Check if vals are equal and
-                and dfs(left.left, right.right) # recursively see if corresponding node values are equal as well
+                left.val == right.val  # Check if vals are equal and
+                and dfs(
+                    left.left, right.right
+                )  # recursively see if corresponding node values are equal as well
                 and dfs(left.right, right.left)
             )  # The result is a bool answer
 
-        return dfs(root.left, root.right) # Call helper function
+        return dfs(root.left, root.right)  # Call helper function

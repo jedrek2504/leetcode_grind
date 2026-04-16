@@ -3,7 +3,7 @@ class Solution:
         if not root:
             return []
 
-        q = deque([root]) 
+        q = deque([root])
         res = []
 
         while q:
@@ -11,7 +11,7 @@ class Solution:
             for _ in range(len(q)):
                 popped = q.popleft()
                 temp.append(popped.val)
-                
+
                 if popped.left:
                     q.append(popped.left)
                 if popped.right:
