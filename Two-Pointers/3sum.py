@@ -1,6 +1,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort() # Sort the array to introduce two pointers
+        nums.sort()  # Sort the array to introduce two pointers
         ans = []
 
         # Because two pointers must fit to the right of the a
@@ -9,11 +9,11 @@ class Solution:
             if a > 0 and nums[a] == nums[a - 1]:
                 continue
 
-            l, r = a + 1, len(nums) - 1 # Initiate l, r pointers
+            l, r = a + 1, len(nums) - 1  # Initiate l, r pointers
 
             while l < r:
                 triplets = [nums[a], nums[l], nums[r]]  # Declare triplets
-                s = sum(triplets) # s - sum of triplets
+                s = sum(triplets)  # s - sum of triplets
 
                 # If sum is greater then 0 it means that we need to decrease the value -> shift right pointer
                 if s > 0:

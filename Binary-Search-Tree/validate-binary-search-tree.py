@@ -6,7 +6,7 @@ class Solution:
         def dfs(node) -> bool:
             nonlocal prev
             if not node:
-                return True # Return True when no node
+                return True  # Return True when no node
 
             if not dfs(node.left):
                 return False
@@ -15,8 +15,8 @@ class Solution:
             if prev is not None and prev >= node.val:
                 return False
 
-            prev = node.val # Set prev to curr node each recursive call
+            prev = node.val  # Set prev to curr node each recursive call
 
-            return dfs(node.right) # Call dfs on right node
+            return dfs(node.right)  # Call dfs on right node
 
-        return dfs(root) # return the result of our helper func
+        return dfs(root)  # return the result of our helper func

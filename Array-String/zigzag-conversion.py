@@ -4,8 +4,8 @@ class Solution:
         if numRows == 1 or numRows >= len(s):
             return s
 
-        idx, d = 0, 1 # index to put value, direction (1 -> and -1 <-)
-        rows = [[] for _ in range(numRows)] # Same no of rows as numRows
+        idx, d = 0, 1  # index to put value, direction (1 -> and -1 <-)
+        rows = [[] for _ in range(numRows)]  # Same no of rows as numRows
 
         # Iterate over each char
         for char in s:
@@ -18,11 +18,11 @@ class Solution:
             elif idx == numRows - 1:
                 d = -1
 
-            idx += d # Increment/Decrement index by corresponding direction
+            idx += d  # Increment/Decrement index by corresponding direction
 
         # Join each row into a string
         for i in range(numRows):
-            rows[i] = ''.join(rows[i])
+            rows[i] = "".join(rows[i])
 
         # Concat strings
-        return ''.join(rows)
+        return "".join(rows)

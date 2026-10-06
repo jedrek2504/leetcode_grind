@@ -4,8 +4,8 @@ class Solution:
         k = len(nums) - k
 
         def quickSelect(l, r):
-            pivot = nums[r]          # Choose last element as pivot
-            p = l                    # Pointer for elements <= pivot
+            pivot = nums[r]  # Choose last element as pivot
+            p = l  # Pointer for elements <= pivot
 
             # Partition the array
             for i in range(l, r):
@@ -22,6 +22,6 @@ class Solution:
             elif p < k:
                 return quickSelect(p + 1, r)
             else:
-                return nums[p]       # Found k-th largest
+                return nums[p]  # Found k-th largest
 
         return quickSelect(0, len(nums) - 1)

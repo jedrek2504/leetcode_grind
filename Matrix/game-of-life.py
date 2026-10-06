@@ -1,12 +1,21 @@
 class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:
-        ROWS, COLS = len(board), len(board[0]) # Extract rows and cols
-        directions = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)] # all dirs including diagonals
+        ROWS, COLS = len(board), len(board[0])  # Extract rows and cols
+        directions = [
+            (1, 0),
+            (-1, 0),
+            (0, 1),
+            (0, -1),
+            (1, 1),
+            (-1, -1),
+            (1, -1),
+            (-1, 1),
+        ]  # all dirs including diagonals
 
         # Iterate over each element in matrix
         for r in range(ROWS):
             for c in range(COLS):
-                live_neighbours = 0 # Each iteration calculate live_neighbours
+                live_neighbours = 0  # Each iteration calculate live_neighbours
 
                 # Traverse all neighbours
                 for dx, dy in directions:

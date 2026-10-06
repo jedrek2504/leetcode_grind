@@ -1,15 +1,16 @@
 from collections import deque
 
+
 class Solution:
     def solve(self, board: list[list[str]]) -> None:
         ROWS = len(board)
         COLS = len(board[0])
-        dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)] # Directions
+        dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # Directions
 
-        def bfs(r: int , c: int) -> None:
-            q = deque() # Deque for bfs regular queue for dfs
+        def bfs(r: int, c: int) -> None:
+            q = deque()  # Deque for bfs regular queue for dfs
             q.append((r, c))
-            board[r][c] = "." # Mark as NOT eligable for removal (mark as "X")
+            board[r][c] = "."  # Mark as NOT eligable for removal (mark as "X")
 
             while q:
                 row, col = q.popleft()
@@ -17,8 +18,13 @@ class Solution:
                     nr, nc = row + dr, col + dc
 
                     # Check if in bounds and of "O" type and not already marked "."
-                    if not(0 <= nr < ROWS) or not(0 <= nc < COLS) or board[nr][nc] != "O" or board[nr][nc] == ".":
-                        continue # Skip iteration
+                    if (
+                        not (0 <= nr < ROWS)
+                        or not (0 <= nc < COLS)
+                        or board[nr][nc] != "O"
+                        or board[nr][nc] == "."
+                    ):
+                        continue  # Skip iteration
 
                     # If we got here - none of the above triggered continue
                     q.append((nr, nc))
@@ -28,7 +34,7 @@ class Solution:
         for r in range(ROWS):
             for c in range(COLS):
                 # Ensure its borders only - AND - de morgan
-                if not(r == 0 or r == ROWS - 1) and not(c == 0 or c == COLS - 1):
+                if not (r == 0 or r == ROWS - 1) and not (c == 0 or c == COLS - 1):
                     continue
 
                 # If we got here

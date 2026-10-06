@@ -12,7 +12,7 @@ class Solution:
             preorder(node.left)
             preorder(node.right)
 
-        preorder(root) # Populate order arr
+        preorder(root)  # Populate order arr
 
         # Go through the order arr
         for i in range(1, len(order)):
@@ -20,7 +20,7 @@ class Solution:
             prev = order[i - 1]
             curr = order[i]
 
-            prev.left = None # Make left branches null
-            prev.right = curr # Connect branches
+            prev.left = None  # Make left branches null
+            prev.right = curr  # Connect branches
 
         # We do not return anything

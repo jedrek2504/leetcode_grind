@@ -1,6 +1,8 @@
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        prev, res = None, float("inf") # "Global" variables to access from dfs inner func
+        prev, res = None, float(
+            "inf"
+        )  # "Global" variables to access from dfs inner func
 
         # DFS helper function
         def dfs(node):
@@ -14,12 +16,12 @@ class Solution:
 
             # If prev has been set at least once
             if prev is not None:
-                res = min(res, node.val - prev.val) # Update result
+                res = min(res, node.val - prev.val)  # Update result
 
-            prev = node # Update prev to a current node
+            prev = node  # Update prev to a current node
 
-            dfs(node.right) # Call dfs on right node with updated prev value
+            dfs(node.right)  # Call dfs on right node with updated prev value
 
-        dfs(root)   # Call the dfs helper function
+        dfs(root)  # Call the dfs helper function
 
         return res  # Return a result
