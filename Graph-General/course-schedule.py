@@ -1,9 +1,10 @@
 from collections import defaultdict
 
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
-        preMap = defaultdict(list) # Maps {crs: [pre1, pre2 ...]}
-        visited = set() # Keeps track of visited courses to detect cycle
+        preMap = defaultdict(list)  # Maps {crs: [pre1, pre2 ...]}
+        visited = set()  # Keeps track of visited courses to detect cycle
 
         # Create adjacency list
         for crs, pre in prerequisites:
@@ -18,7 +19,7 @@ class Solution:
             if crs in visited:
                 return False
 
-            visited.add(crs) # Mark course visited
+            visited.add(crs)  # Mark course visited
 
             # Traverse each prerequisite
             for pre in preMap[crs]:
@@ -26,7 +27,9 @@ class Solution:
                 if not dfs(pre):
                     return False
             # If we got here:
-            preMap[crs] = [] # All prerequisites are fulfilled so we mark it as empty list
+            preMap[crs] = (
+                []
+            )  # All prerequisites are fulfilled so we mark it as empty list
             return True
 
         # Important! We have to call dfs on every course because we don't have a clear root
