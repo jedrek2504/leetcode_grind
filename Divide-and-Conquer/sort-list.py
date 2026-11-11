@@ -21,9 +21,9 @@ class Solution:
             else:
                 curr.next = right
                 right = right.next
-            curr = curr.next # Progress curr pointer
+            curr = curr.next  # Progress curr pointer
 
-        curr.next = left or right # Attach remainder of a list
+        curr.next = left or right  # Attach remainder of a list
         return dummy.next
 
     def sortList(self, head: ListNode | None) -> ListNode | None:
@@ -40,4 +40,4 @@ class Solution:
         l = self.sortList(head)
         r = self.sortList(tmp)
 
-        return self.merge_lists(l, r) # Return a merged list
+        return self.merge_lists(l, r)  # Return a merged list

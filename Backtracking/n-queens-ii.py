@@ -8,10 +8,10 @@ class Solution:
 
         # Sets for lookup if queen can be put or not
         cols = set()
-        diag = set() # (r + c) values
-        anti_diag = set() # (r - c) values
+        diag = set()  # (r + c) values
+        anti_diag = set()  # (r - c) values
 
-        def backtrack(row : int) -> None:
+        def backtrack(row: int) -> None:
             nonlocal solutions
             # We need to go 1 row "over" the board to add a solution and return to previous caller bactrack(3)
             if row == n:
@@ -21,7 +21,7 @@ class Solution:
             for col in range(n):
                 # If other queen can reach us
                 if col in cols or (row + col) in diag or (row - col) in anti_diag:
-                    continue # We skip
+                    continue  # We skip
 
                 ## board[row][col] = True # Place a Queen
 
@@ -30,7 +30,7 @@ class Solution:
                 diag.add(row + col)
                 anti_diag.add(row - col)
 
-                backtrack(row + 1) # Call backtrack
+                backtrack(row + 1)  # Call backtrack
 
                 ## board[row][col] = False # Remove a queen
                 # Once the queen is removed reflect it in the set

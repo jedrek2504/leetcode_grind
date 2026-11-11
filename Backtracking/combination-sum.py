@@ -1,6 +1,6 @@
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
-        candidates.sort() # Sort candidates first in-place
+        candidates.sort()  # Sort candidates first in-place
         res = []
         comb = []
 
@@ -14,9 +14,11 @@ class Solution:
                 num = candidates[i]
                 # If at any point current number is bigger then remaining
                 if num > remaining:
-                    break #  There is no point of going further
+                    break  #  There is no point of going further
                 comb.append(num)
-                backtrack(i, remaining - num) # reuse numbers, so index = i (allow for [2,2,2,2] with target = 8 even though len(comb) > len(candidates))
+                backtrack(
+                    i, remaining - num
+                )  # reuse numbers, so index = i (allow for [2,2,2,2] with target = 8 even though len(comb) > len(candidates))
                 comb.pop()
 
         backtrack(0, target)

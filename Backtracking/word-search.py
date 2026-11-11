@@ -12,7 +12,10 @@ class Solution:
             if (
                 not (0 <= r < ROWS)  # Row out of bounds
                 or not (0 <= c < COLS)  # Col out of bounds
-                or board[r][c] != word[i]  # Current cell doesn't have a target letter (visited cells are marked "#", so they never match)
+                or board[r][c]
+                != word[
+                    i
+                ]  # Current cell doesn't have a target letter (visited cells are marked "#", so they never match)
             ):
                 return False
 
